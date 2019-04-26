@@ -11,6 +11,7 @@ import { LojaService } from '../service/loja.service';
 export class LojaStoreComponent implements OnInit {
 
   productForm: FormGroup;
+  storeLojaErroForm: string = '';
   isLoadingResults = false;
 
   constructor(private router: Router, private api: LojaService, private formBuilder: FormBuilder) { }
@@ -25,12 +26,12 @@ export class LojaStoreComponent implements OnInit {
     this.isLoadingResults = true;
     this.api.storeLoja(form)
       .subscribe(res => {
+          this.storeLojaErroForm = '';
           const id = res.data.id;
           this.isLoadingResults = false;
           this.router.navigate(['/loja-show', id]);
-        }, (err) => {
-          console.log(err);
-          this.isLoadingResults = false;
+        }, error => {
+          this.storeLojaErroForm = error.error.error;
         });
   }
 

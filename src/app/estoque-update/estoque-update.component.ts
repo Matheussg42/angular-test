@@ -17,6 +17,7 @@ export class EstoqueUpdateComponent implements OnInit {
   quantidade: number = null;
   fk_id_produto: number = null
   fk_id_loja: number = null;
+  updateEstoqueErroForm: string = '';
   produtoLista = [];
   lojaLista = [];
   isLoadingResults = false;
@@ -60,16 +61,13 @@ export class EstoqueUpdateComponent implements OnInit {
 
   updateEstoque(form: NgForm) {
     this.isLoadingResults = true;
-    // console.log(form);
-    // return false;
     this.api.updateEstoque(this.id, form)
       .subscribe(res => {
+        this.updateEstoqueErroForm = '';
         this.isLoadingResults = false;
         this.router.navigate(['/estoque-show/' + this.id]);
-      }, (err) => {
-        console.log(err);
-        this.isLoadingResults = false;
-      }
-      );
+      }, error => {
+        this.updateEstoqueErroForm = error.error.error;
+      });
   }
 }

@@ -9,6 +9,7 @@
     <textarea  matInput name="unidade" placeholder="Unidade do Produto" formControlName="unidade"></textarea>
   </mat-form-field>
 
+  <span>{{storeProdutoErroForm}}</span>
 
   <button type="submit" [disabled]="!productForm.valid" mat-button color="primary" >Adicionar</button>
 </form>

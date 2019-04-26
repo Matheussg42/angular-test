@@ -12,6 +12,7 @@ export class ProdutoUpdateComponent implements OnInit {
 
   id: number = null;
   productForm: FormGroup;
+  updateProdutoErroForm: string = '';
   nome: String = '';
   unidade: String = '';
   isLoadingResults = false;
@@ -41,12 +42,11 @@ export class ProdutoUpdateComponent implements OnInit {
     this.isLoadingResults = true;
     this.api.updateProduto(this.id, form)
       .subscribe(res => {
+          this.updateProdutoErroForm = '';
           this.isLoadingResults = false;
           this.router.navigate(['/produto-show/' + this.id]);
-        }, (err) => {
-          console.log(err);
-          this.isLoadingResults = false;
-        }
-      );
+        }, error => {
+          this.updateProdutoErroForm = error.error.error;
+        });
   }
 }

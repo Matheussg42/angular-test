@@ -6,7 +6,7 @@
     <input matInput name="nome" placeholder="Nome da Loja" formControlName="nome">
   </mat-form-field>
 
-
+  <span>{{storeLojaErroForm}}</span>
 
   <button type="submit" [disabled]="!productForm.valid" mat-button color="primary" >Adicionar</button>
 </form>

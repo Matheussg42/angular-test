@@ -12,6 +12,7 @@ export class LojaUpdateComponent implements OnInit {
 
   id: number = null;
   productForm: FormGroup;
+  updateLojaErroForm: string
   nome: String = '';
   isLoadingResults = false;
 
@@ -38,12 +39,11 @@ export class LojaUpdateComponent implements OnInit {
     this.isLoadingResults = true;
     this.api.updateLoja(this.id, form)
       .subscribe(res => {
+          this.updateLojaErroForm = '';
           this.isLoadingResults = false;
           this.router.navigate(['/loja-show/' + this.id]);
-        }, (err) => {
-          console.log(err);
-          this.isLoadingResults = false;
-        }
-      );
+        }, error => {
+          this.updateLojaErroForm = error.error.error;
+        });
   }
 }

@@ -11,6 +11,7 @@ import { ProdutoService } from '../service/produto.service';
 export class ProdutoStoreComponent implements OnInit {
 
   productForm: FormGroup;
+  storeProdutoErroForm: string = '';
   isLoadingResults = false;
 
   constructor(private router: Router, private api: ProdutoService, private formBuilder: FormBuilder) { }
@@ -26,12 +27,12 @@ export class ProdutoStoreComponent implements OnInit {
     this.isLoadingResults = true;
     this.api.storeProduto(form)
       .subscribe(res => {
+          this.storeProdutoErroForm = '';
           const id = res.data.id;
           this.isLoadingResults = false;
           this.router.navigate(['/produto-show', id]);
-        }, (err) => {
-          console.log(err);
-          this.isLoadingResults = false;
+        }, error => {
+          this.storeProdutoErroForm = error.error.error;
         });
   }
 

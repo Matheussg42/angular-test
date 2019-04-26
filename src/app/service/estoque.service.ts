@@ -22,11 +22,7 @@ export class EstoqueService {
   }
 
   storeEstoque (estoque): Observable<any> {
-    return this.http.post(apiUrl, estoque, httpOptions).pipe(
-      // tslint:disable-next-line:no-shadowed-variable
-      tap((estoque: Estoque) => console.log(`adicionou o estoque com w/ id=${estoque.id}`)),
-      catchError(this.handleError<Estoque>('addEstoque'))
-    );
+    return this.http.post(apiUrl, estoque, httpOptions);
   }
 
   showEstoque(id: number): Observable<any> {

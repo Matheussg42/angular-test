@@ -17,6 +17,7 @@ export class EstoqueStoreComponent implements OnInit {
   quantidade: number = null;
   fk_id_produto: number = null
   fk_id_loja: number = null;
+  storeEstoqueErroForm: string = '';
   produtoLista = [];
   lojaLista = [];
   isLoadingResults = false;
@@ -62,12 +63,12 @@ export class EstoqueStoreComponent implements OnInit {
     this.api.storeEstoque(form)
       .subscribe(res => {
         console.log('accept',res)
+          this.storeEstoqueErroForm = '';
           const id = res.data.id;
           this.isLoadingResults = false;
           this.router.navigate(['/estoque-show', id]);
-        }, (err) => {
-          console.warn('error',err);
-          this.isLoadingResults = false;
+        }, error => {
+          this.storeEstoqueErroForm = error.error.error;
         });
   }
 }

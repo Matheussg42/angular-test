@@ -16,5 +16,7 @@
     <input matInput name="quantidade" placeholder="Quantidade em Estoque" formControlName="quantidade">
   </mat-form-field>
 
+  <span>{{updateEstoqueErroForm}}</span>
+
   <button type="submit" [disabled]="!productForm.valid" (click)="updateEstoque(productForm.value)" mat-button color="primary" >Editar</button>
 </form>
