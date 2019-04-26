@@ -1,0 +1,20 @@
+<div>
+  <h3>Editar Estoque</h3>
+</div>
+<form class="example-container" [formGroup]="productForm" >
+  <mat-form-field>
+    <mat-select placeholder="Selecione o Produto" formControlName="fk_id_produto">
+      <mat-option *ngFor="let prod of produtoLista" [value]="prod.id">{{ prod.nome }}</mat-option>
+    </mat-select>
+  </mat-form-field>
+  <mat-form-field>
+    <mat-select placeholder="Selecione a Loja" formControlName="fk_id_loja">
+      <mat-option *ngFor="let loja of lojaLista" [value]="loja.id">{{ loja.nome }}</mat-option>
+    </mat-select>
+  </mat-form-field>
+  <mat-form-field>
+    <input matInput name="quantidade" placeholder="Quantidade em Estoque" formControlName="quantidade">
+  </mat-form-field>
+
+  <button type="submit" [disabled]="!productForm.valid" (click)="updateEstoque(productForm.value)" mat-button color="primary" >Editar</button>
+</form>

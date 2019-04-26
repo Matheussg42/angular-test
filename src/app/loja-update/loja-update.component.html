@@ -1,0 +1,12 @@
+<div>
+  <h3>Editar Loja</h3>
+</div>
+<form class="example-container" [formGroup]="productForm" (ngSubmit)="updateLoja(productForm.value)">
+  <mat-form-field>
+    <input matInput name="nome" placeholder="Nome da Loja" formControlName="nome">
+  </mat-form-field>
+
+
+
+  <button type="submit" [disabled]="!productForm.valid" mat-button color="primary" >Editar</button>
+</form>

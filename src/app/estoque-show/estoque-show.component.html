@@ -1,0 +1,24 @@
+<div class="example-container mat-elevation-z8">
+  <div class="example-loading-shade"
+       *ngIf="isLoadingResults">
+    <mat-spinner *ngIf="isLoadingResults"></mat-spinner>
+  </div>
+  <div class="button-row">
+    <button mat-flat-button color="accent" [routerLink]="['/estoque']"><mat-icon>list</mat-icon> Voltar</button>
+  </div>
+  <mat-card class="example-card">
+    <mat-card-header>
+      <mat-card-title><h2></h2></mat-card-title>
+      
+    </mat-card-header>
+    <mat-card-content>
+      <p>Produto: {{estoque.produto_nome}}</p>
+      <p>Loja: {{estoque.loja_nome}}</p>
+      <p>Quantidade: {{estoque.quantidade}}</p>
+    </mat-card-content>
+    <mat-card-actions>
+      <button mat-flat-button color="primary" class="teste" [routerLink]="['/estoque-update', estoque.id]"><mat-icon>edit</mat-icon> Editar</button>
+      <button mat-flat-button color="warn" (click)="deleteEstoque(estoque.id)"><mat-icon>delete</mat-icon> Excluir</button>
+    </mat-card-actions>
+  </mat-card>
+</div>
