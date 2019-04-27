@@ -1,0 +1,16 @@
+<div>
+  <h3>Adicionar Nova Loja</h3>
+</div>
+<div class="example-container mat-elevation-z8">
+  <mat-card class="example-card">
+    <form class="example-container" [formGroup]="productForm" (ngSubmit)="storeLoja(productForm.value)">
+      <mat-form-field style="width: 40%; margin-right: 2.5%;">
+        <input matInput name="nome" placeholder="Nome da Loja" formControlName="nome">
+      </mat-form-field>
+
+      
+      <button class="btn-green" mat-raised-button type="submit" [disabled]="!productForm.valid" mat-button color="primary"><mat-icon>save</mat-icon> Editar</button>
+      <span class="erro-msg">{{storeLojaErroForm}}</span>
+    </form>
+  </mat-card>
+</div>

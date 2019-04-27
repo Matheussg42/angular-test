@@ -1,0 +1,22 @@
+<div>
+  <h3 class="title-with-btn">Visualizar Loja</h3>
+  <button style="float: right;" mat-flat-button color="primary" [routerLink]="['/loja']"><mat-icon>undo</mat-icon> Lojas</button>
+</div>
+
+<div class="example-container mat-elevation-z8">
+  <div class="container container-show">  
+    <div class="row">
+      <div class="col-md-4">
+        <p>Nome da Loja:<br>{{loja.nome}}</p>
+      </div>
+      <div class="col-md-4"></div>
+      <div class="col-md-2">
+          <button mat-flat-button color="primary" class="teste" [routerLink]="['/loja-update', loja.id]"><mat-icon>edit</mat-icon> Editar</button>
+      </div>
+      <div class="col-md-2">
+          <button mat-flat-button color="warn" (click)="deleteLoja(loja.id)"><mat-icon>delete</mat-icon> Excluir</button>
+      </div>
+    </div>
+    <span class="erro-msg">{{deleteLojaErroForm}}</span>
+  </div>
+</div>

@@ -1,0 +1,26 @@
+<div>
+    <h3 class="title-with-btn">Visualizar Estoque</h3>
+    <button style="float: right;" mat-flat-button color="primary" [routerLink]="['/estoque']"><mat-icon>undo</mat-icon> Estoque</button>
+  </div>
+  
+  <div class="example-container mat-elevation-z8">
+      <div class="container container-show">  
+        <div class="row">
+          <div class="col-md-3">
+            <p>Produto:<br>{{estoque.produto_nome}}</p>
+          </div>
+          <div class="col-md-3">
+            <p>Loja:<br>{{estoque.loja_nome}}</p>
+          </div>
+          <div class="col-md-2">
+            <p>Quantidade:<br>{{estoque.quantidade}}</p>
+          </div>
+          <div class="col-md-2">
+              <button mat-flat-button color="primary" class="teste" [routerLink]="['/estoque-update', estoque.id]"><mat-icon>edit</mat-icon> Editar</button>
+          </div>
+          <div class="col-md-2">
+              <button mat-flat-button color="warn" (click)="deleteEstoque(estoque.id)"><mat-icon>delete</mat-icon> Excluir</button>
+          </div>
+        </div>
+      </div>
+  </div>

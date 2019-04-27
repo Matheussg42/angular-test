@@ -1,0 +1,29 @@
+<mat-sidenav-container style="border: none;" class="sidenav-container">
+  <mat-sidenav  #drawer class="sidenav" fixedInViewport="true"
+      [attr.role]="(isHandset$ | async) ? 'dialog' : 'navigation'"
+      [mode]="(isHandset$ | async) ? 'over' : 'side'"
+      [opened]="!(isHandset$ | async)">
+    <mat-toolbar style="background-color: #3f51b5"></mat-toolbar>
+    <mat-nav-list>
+      <a style="color: #fff;" mat-list-item routerLink="/produto" routerLinkActive="active">Produtos</a>
+      <a style="color: #fff;" mat-list-item routerLink="/loja" routerLinkActive="active">Lojas</a>
+      <a style="color: #fff;" mat-list-item routerLink="/estoque" routerLinkActive="active">Estoques</a>
+    </mat-nav-list>
+  </mat-sidenav>
+  <mat-sidenav-content>
+    <mat-toolbar color="primary">
+      <button
+        type="button"
+        aria-label="Toggle sidenav"
+        mat-icon-button
+        (click)="drawer.toggle()"
+        *ngIf="isHandset$ | async">
+        <mat-icon aria-label="Side nav toggle icon">menu</mat-icon>
+      </button>
+      <span>Matheus S. Gomes - Avaliação Prática Desenvolvedor PHP</span>
+    </mat-toolbar>
+    <div class="container">
+   <router-outlet></router-outlet>
+  </div>
+  </mat-sidenav-content>
+</mat-sidenav-container>

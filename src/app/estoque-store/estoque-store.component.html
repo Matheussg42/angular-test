@@ -1,0 +1,26 @@
+<div>
+    <h3>Cadastrar Estoque</h3>
+  </div>
+  <div class="example-container mat-elevation-z8">
+    <mat-card class="example-card">
+      <form class="example-container" [formGroup]="productForm" >
+        <mat-form-field style="width: 27%; margin-right: 2%;">
+          <mat-select placeholder="Selecione o Produto" formControlName="fk_id_produto">
+            <mat-option *ngFor="let prod of produtoLista" [value]="prod.id">{{ prod.nome }}</mat-option>
+          </mat-select>
+        </mat-form-field>
+        <mat-form-field style="width: 27%; margin-right: 2%;">
+          <mat-select placeholder="Selecione a Loja" formControlName="fk_id_loja">
+            <mat-option *ngFor="let loja of lojaLista" [value]="loja.id">{{ loja.nome }}</mat-option>
+          </mat-select>
+        </mat-form-field>
+        <mat-form-field style="width: 27%; margin-right: 2%;">
+          <input matInput name="quantidade" placeholder="Quantidade em Estoque" formControlName="quantidade">
+        </mat-form-field>
+  
+        
+        <button class="btn-green" mat-raised-button type="submit" [disabled]="!productForm.valid" (click)="storeEstoque(productForm.value)" mat-button color="primary" ><mat-icon>save</mat-icon> Salvar</button>
+        <span class="erro-msg">{{storeEstoqueErroForm}}</span>
+      </form>
+    </mat-card>
+  </div>

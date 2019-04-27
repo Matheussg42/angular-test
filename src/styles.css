@@ -1,0 +1,35 @@
+/* You can add global styles to this file, and also import other style files */
+@import "~@angular/material/prebuilt-themes/indigo-pink.css";
+@import "~bootstrap/dist/css/bootstrap.css";
+
+.btn-in-title{
+    float: right;
+    margin-bottom: 15px !important;
+    background-color: #27ae60 !important;
+}
+
+.title-with-btn{
+    display: inline-block;
+}
+
+.btn-green{
+    background-color: #27ae60 !important;
+}
+
+.container-show{padding: 20px;}
+
+.container-show p{margin: 0;}
+.erro-msg{
+    display: block;
+    text-align: center;
+    width: 50%;
+    margin: 0 auto;
+    padding: 10px;
+    color: #f44336;
+    font-weight: 600;
+}
+
+.sidenav.mat-drawer.mat-sidenav{
+    border: none !important;
+    background-color: #444 !important;
+}
